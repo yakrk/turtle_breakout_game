@@ -7,7 +7,7 @@ from score import Score
 
 # show screen 
 screen = Screen()
-screen.bgcolor("blue")
+screen.bgcolor("black")
 screen.setup(width=800, height=600)
 screen.title("Breakout Game")
 screen.tracer(0)
@@ -19,7 +19,7 @@ score = Score()
 
 #define bars
 start_x_position = -380
-start_y_position = 50
+start_y_position = 100
 bricks = []
 for j in range(4):
     y_position = j*30 + start_y_position
@@ -47,8 +47,8 @@ while game_is_on:
         ball.bounce_y()
         
     if ball.ycor() < -290:
-        print("game over")
         game_is_on = False
+        score.game_over()
         
     #ball movement against paddle
     if ball.distance(paddle) < 30:
