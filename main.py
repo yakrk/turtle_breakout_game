@@ -44,15 +44,21 @@ while game_is_on:
         ball.bounce_x()
         
     if ball.ycor() > 280: 
-        ball.bounce_y()
+        ball.bounce_y() 
         
     if ball.ycor() < -290:
         game_is_on = False
         score.game_over()
         
     #ball movement against paddle
+    is_moving_right = ball.direction()
     if ball.distance(paddle) < 30:
-        ball.bounce_y()
+        if ball.xcor() < paddle.xcor() and is_moving_right \
+            or ball.xcor() < paddle.xcor() and not is_moving_right:
+            ball.bounce_x()
+            ball.bounce_y()
+        else:
+            ball.bounce_y()
 
     #ball movement against brick
     for brick in bricks:

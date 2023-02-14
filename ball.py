@@ -8,8 +8,8 @@ class Ball(Turtle):
         self.color("white")
         self.shape("circle")
         self.penup()
-        self.x_move = 2
-        self.y_move = 2
+        self.x_move = 1
+        self.y_move = 1
         self.move_speed = 1
         self.speed(self.move_speed)
 
@@ -23,3 +23,10 @@ class Ball(Turtle):
 
     def bounce_x(self):
         self.x_move *= -1
+        
+    def direction(self):
+        if self.x_move > 0:
+            is_moving_right = True
+        else:
+            is_moving_right = False
+        return is_moving_right
